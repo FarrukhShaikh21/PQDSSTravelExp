@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssTravelexpanseRoutsetup"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DSS_TRAVELEXPANSE_ROUTSETUP"
+  AliasName="DssTravelexpanseRoutsetup"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="RoutIdFk"
+    ColumnName="ROUT_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_ROUTSETUP"/>
+  <Attribute
+    Name="RoutType"
+    Precision="100"
+    ColumnName="ROUT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_TRAVELEXPANSE_ROUTSETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserIdFk"
+    ColumnName="USER_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_ROUTSETUP"/>
+  <Attribute
+    Name="EnterDate"
+    ColumnName="ENTER_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_TRAVELEXPANSE_ROUTSETUP"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_ROUTSETUP"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_TRAVELEXPANSE_ROUTSETUP"/>
+  <Attribute
+    Name="ExpIdPk"
+    IsNotNull="true"
+    ColumnName="EXP_ID_PK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_ROUTSETUP"
+    PrimaryKey="true"/>
+  <Key
+    Name="DsstravelexpanseroutsetupPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DSSTRAVELEXPANSEROUTSETUP_PRIM"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dss.pqt.travelExp.model.eo.DssTravelexpanseRoutsetup.ExpIdPk"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssTravelexpanseAmountSetup"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DSS_TRAVELEXPANSE_AMOUNT_SETUP"
+  AliasName="DssTravelexpanseAmountSetup"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="ParticularIdFk"
+    ColumnName="PARTICULAR_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_AMOUNT_SETUP"/>
+  <Attribute
+    Name="Particular"
+    Precision="100"
+    ColumnName="PARTICULAR"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_TRAVELEXPANSE_AMOUNT_SETUP">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserIdFk"
+    ColumnName="USER_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_AMOUNT_SETUP"/>
+  <Attribute
+    Name="EnterDate"
+    ColumnName="ENTER_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_TRAVELEXPANSE_AMOUNT_SETUP"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_AMOUNT_SETUP"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_TRAVELEXPANSE_AMOUNT_SETUP"/>
+  <Attribute
+    Name="ParticularSetupPk"
+    IsNotNull="true"
+    ColumnName="PARTICULAR_SETUP_PK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_AMOUNT_SETUP"
+    PrimaryKey="true"/>
+  <Key
+    Name="DsstravelexpanseamountsetupPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DSSTRAVELEXPANSEAMOUNTSETUP_PR"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dss.pqt.travelExp.model.eo.DssTravelexpanseAmountSetup.ParticularSetupPk"/>
+    </AttrArray>
+  </Key>
+</Entity>

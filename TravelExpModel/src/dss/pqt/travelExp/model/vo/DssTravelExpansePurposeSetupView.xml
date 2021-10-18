@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssTravelExpansePurposeSetupView"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="DssTravelExpansePurposeSetup"
+    Entity="dss.pqt.travelExp.model.eo.DssTravelExpansePurposeSetup"/>
+  <ViewAttribute
+    Name="PurposeIdPk"
+    PrecisionRule="true"
+    EntityAttrName="PurposeIdPk"
+    EntityUsage="DssTravelExpansePurposeSetup"
+    AliasName="PURPOSE_ID_PK"/>
+  <ViewAttribute
+    Name="PurposeDescription"
+    PrecisionRule="true"
+    EntityAttrName="PurposeDescription"
+    EntityUsage="DssTravelExpansePurposeSetup"
+    AliasName="PURPOSE_DESCRIPTION"/>
+  <ViewAttribute
+    Name="EnterDate"
+    PrecisionRule="true"
+    EntityAttrName="EnterDate"
+    EntityUsage="DssTravelExpansePurposeSetup"
+    AliasName="ENTER_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DssTravelExpansePurposeSetup"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="DssTravelExpansePurposeSetup"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="UserIdFk"
+    PrecisionRule="true"
+    EntityAttrName="UserIdFk"
+    EntityUsage="DssTravelExpansePurposeSetup"
+    AliasName="USER_ID_FK"/>
+</ViewObject>

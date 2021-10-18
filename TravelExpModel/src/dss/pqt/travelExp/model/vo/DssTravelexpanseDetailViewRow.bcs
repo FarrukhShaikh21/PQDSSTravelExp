@@ -1,0 +1,19 @@
+//Groovy Scripts for dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView
+
+package dss.pqt.travelExp.model.vo
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="TotAmount")
+def TotAmount_ExpressionScript_Expression()
+{
+String s = 'TaxAmount' + 'OtherAmount' + 'FareAmount'
+}
+
+
+@TransientValueExpression(attributeName="TotSumAmount")
+def TotSumAmount_ExpressionScript_Expression()
+{
+getRowSet().sum("TotAmount")
+}
+

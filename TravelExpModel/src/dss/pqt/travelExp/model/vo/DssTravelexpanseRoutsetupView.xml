@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssTravelexpanseRoutsetupView"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="DssTravelexpanseRoutsetup"
+    Entity="dss.pqt.travelExp.model.eo.DssTravelexpanseRoutsetup"/>
+  <ViewAttribute
+    Name="RoutIdFk"
+    PrecisionRule="true"
+    EntityAttrName="RoutIdFk"
+    EntityUsage="DssTravelexpanseRoutsetup"
+    AliasName="ROUT_ID_FK"/>
+  <ViewAttribute
+    Name="RoutType"
+    PrecisionRule="true"
+    EntityAttrName="RoutType"
+    EntityUsage="DssTravelexpanseRoutsetup"
+    AliasName="ROUT_TYPE"/>
+  <ViewAttribute
+    Name="UserIdFk"
+    PrecisionRule="true"
+    EntityAttrName="UserIdFk"
+    EntityUsage="DssTravelexpanseRoutsetup"
+    AliasName="USER_ID_FK"/>
+  <ViewAttribute
+    Name="EnterDate"
+    PrecisionRule="true"
+    EntityAttrName="EnterDate"
+    EntityUsage="DssTravelexpanseRoutsetup"
+    AliasName="ENTER_DATE"/>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DssTravelexpanseRoutsetup"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="DssTravelexpanseRoutsetup"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="ExpIdPk"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ExpIdPk"
+    EntityUsage="DssTravelexpanseRoutsetup"
+    AliasName="EXP_ID_PK"/>
+</ViewObject>

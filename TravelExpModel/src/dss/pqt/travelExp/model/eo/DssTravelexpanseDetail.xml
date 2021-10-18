@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssTravelexpanseDetail"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="DSS_TRAVELEXPANSE_DETAIL"
+  AliasName="DssTravelexpanseDetail"
+  BindingStyle="OracleName"
+  RowClass="dss.pqt.travelExp.model.eo.DssTravelexpanseDetailImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="RoutIdPk"
+    ColumnName="ROUT_ID_PK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"
+    PrimaryKey="true"
+    IsNotNull="true"/>
+  <Attribute
+    Name="DetailDate"
+    ColumnName="DETAIL_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"
+    IsNotNull="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.DetailDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Transportation"
+    Precision="1000"
+    ColumnName="TRANSPORTATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_TRAVELEXPANSE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.Transportation_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TripType"
+    Precision="50"
+    ColumnName="TRIP_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_TRAVELEXPANSE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.TripType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="FareAmount"
+    ColumnName="FARE_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.FareAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TaxAmount"
+    ColumnName="TAX_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.TaxAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="OtherAmount"
+    ColumnName="OTHER_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.OtherAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="TotAmount"
+    ColumnName="TOT_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.TotAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="UserIdFk"
+    ColumnName="USER_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"/>
+  <Attribute
+    Name="EnterDate"
+    ColumnName="ENTER_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"/>
+  <Attribute
+    Name="LastUpdatedBy"
+    ColumnName="LAST_UPDATED_BY"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"/>
+  <Attribute
+    Name="LastUpdatedDate"
+    ColumnName="LAST_UPDATED_DATE"
+    SQLType="DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"/>
+  <Attribute
+    Name="TransportMode"
+    Precision="100"
+    ColumnName="TRANSPORT_MODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_TRAVELEXPANSE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ToLocation"
+    ColumnName="TO_LOCATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"
+    Precision="100">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.ToLocation_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="FromLocation"
+    ColumnName="FROM_LOCATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"
+    Precision="100">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.FromLocation_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ExpIdFk"
+    ColumnName="EXP_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"/>
+  <Attribute
+    Name="VoucherIdFk"
+    ColumnName="VOUCHER_ID_FK"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DSS_TRAVELEXPANSE_DETAIL"/>
+  <AccessorAttribute
+    Name="DssTravelExpanseReimbursement"
+    Association="dss.pqt.travelExp.model.eo.DssTravelExpanseDtAssoc"
+    AssociationEnd="dss.pqt.travelExp.model.eo.DssTravelExpanseDtAssoc.DssTravelExpanseReimbursement"
+    AssociationOtherEnd="dss.pqt.travelExp.model.eo.DssTravelExpanseDtAssoc.DssTravelexpanseDetail"
+    Type="dss.pqt.travelExp.model.eo.DssTravelExpanseReimbursementImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="DssTravelexpanseDetailDetailDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"DETAIL_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DSS_TRAVELEXPANSE_DETAIL_DETAI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.DetailDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="RoutIdPk1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ROUT_ID_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.RoutIdPk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="VoucherIdFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="VOUCHER_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="VOUCHER_ID_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.VoucherIdFk"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_DssTravelexpanseDetail">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="VOUCHER_ID_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_DSS_TRAVELEXPANSE_DETAIL"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail.VoucherIdFk"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="dss.pqt.travelExp.model.TravelExpModelBundle"/>
+  </ResourceBundle>
+</Entity>

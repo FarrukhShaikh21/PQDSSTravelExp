@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssTravelexpanseDetailView"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  RowClass="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailViewRowImpl"
+  SelectList="DssTravelexpanseDetail.DETAIL_DATE, 
+       DssTravelexpanseDetail.ENTER_DATE, 
+       DssTravelexpanseDetail.EXP_ID_FK, 
+       DssTravelexpanseDetail.FARE_AMOUNT, 
+       DssTravelexpanseDetail.FROM_LOCATION, 
+       DssTravelexpanseDetail.LAST_UPDATED_BY, 
+       DssTravelexpanseDetail.LAST_UPDATED_DATE, 
+       DssTravelexpanseDetail.OTHER_AMOUNT, 
+       DssTravelexpanseDetail.ROUT_ID_PK, 
+       DssTravelexpanseDetail.TAX_AMOUNT, 
+       DssTravelexpanseDetail.TO_LOCATION, 
+       DssTravelexpanseDetail.TOT_AMOUNT, 
+       DssTravelexpanseDetail.TRANSPORT_MODE, 
+       DssTravelexpanseDetail.TRANSPORTATION, 
+       DssTravelexpanseDetail.TRIP_TYPE, 
+       DssTravelexpanseDetail.USER_ID_FK, 
+       DssTravelexpanseDetail.VOUCHER_ID_FK"
+  FromList="DSS_TRAVELEXPANSE_DETAIL DssTravelexpanseDetail">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="DssTravelexpanseSetupLOV1"
+    ViewObjectName="dss.pqt.travelExp.model.lov.DssTravelexpanseSetupLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="trpTypeLOV1"
+    ViewObjectName="dss.pqt.travelExp.model.lov.trpTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DssTravelexpanseRoutsetupLOV1"
+    ViewObjectName="dss.pqt.travelExp.model.lov.DssTravelexpanseRoutsetupLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DssTravelexpanseSetupLOV2"
+    ViewObjectName="dss.pqt.travelExp.model.lov.DssTravelexpanseSetupLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DssTravelexpanseRoutsetupLOV2"
+    ViewObjectName="dss.pqt.travelExp.model.lov.DssTravelexpanseRoutsetupLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_TripType"
+    ListVOName="trpTypeLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TripType"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Transport"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Transport"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_TransportMode"
+    ListVOName="DssTravelexpanseSetupLOV2"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="TransportMode"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="TrMode"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="TrMode"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_FromLocation"
+    ListVOName="DssTravelexpanseRoutsetupLOV2"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="FromLocation"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RoutType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RoutType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ToLocation"
+    ListVOName="DssTravelexpanseRoutsetupLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ToLocation"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RoutType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RoutType"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="DssTravelexpanseDetail"
+    Entity="dss.pqt.travelExp.model.eo.DssTravelexpanseDetail"/>
+  <ViewAttribute
+    Name="DetailDate"
+    PrecisionRule="true"
+    EntityAttrName="DetailDate"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="DETAIL_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.DetailDate_LABEL"/>
+        <FMT_FORMAT
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.DetailDate_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.DetailDate_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EnterDate"
+    PrecisionRule="true"
+    EntityAttrName="EnterDate"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="ENTER_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.EnterDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.EnterDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ExpIdFk"
+    PrecisionRule="true"
+    EntityAttrName="ExpIdFk"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="EXP_ID_FK"/>
+  <ViewAttribute
+    Name="FareAmount"
+    PrecisionRule="true"
+    EntityAttrName="FareAmount"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="FARE_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.FareAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FromLocation"
+    PrecisionRule="true"
+    EntityAttrName="FromLocation"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="FROM_LOCATION"
+    LOVName="LOV_FromLocation">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.FromLocation_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastUpdatedBy"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedBy"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="LAST_UPDATED_BY"/>
+  <ViewAttribute
+    Name="LastUpdatedDate"
+    PrecisionRule="true"
+    EntityAttrName="LastUpdatedDate"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="OtherAmount"
+    PrecisionRule="true"
+    EntityAttrName="OtherAmount"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="OTHER_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.OtherAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RoutIdPk"
+    PrecisionRule="true"
+    EntityAttrName="RoutIdPk"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="ROUT_ID_PK"/>
+  <ViewAttribute
+    Name="TaxAmount"
+    PrecisionRule="true"
+    EntityAttrName="TaxAmount"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="TAX_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.TaxAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ToLocation"
+    PrecisionRule="true"
+    EntityAttrName="ToLocation"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="TO_LOCATION"
+    LOVName="LOV_ToLocation">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.ToLocation_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotAmount"
+    PrecisionRule="true"
+    EntityAttrName="TotAmount"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="TOT_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.TotAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TransportMode"
+    PrecisionRule="true"
+    EntityAttrName="TransportMode"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="TRANSPORT_MODE"
+    LOVName="LOV_TransportMode">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.TransportMode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Transportation"
+    PrecisionRule="true"
+    EntityAttrName="Transportation"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="TRANSPORTATION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.Transportation_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TripType"
+    PrecisionRule="true"
+    EntityAttrName="TripType"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="TRIP_TYPE"
+    LOVName="LOV_TripType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.TripType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="UserIdFk"
+    PrecisionRule="true"
+    EntityAttrName="UserIdFk"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="USER_ID_FK"/>
+  <ViewAttribute
+    Name="VoucherIdFk"
+    PrecisionRule="true"
+    EntityAttrName="VoucherIdFk"
+    EntityUsage="DssTravelexpanseDetail"
+    AliasName="VOUCHER_ID_FK">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.VoucherIdFk_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotSumAmount"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"
+    IsUpdateable="false">
+    <TransientExpression
+      Name="ExpressionScript"
+      CodeSourceName="DssTravelexpanseDetailViewRow"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView.TotSumAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="dss.pqt.travelExp.model.TravelExpModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

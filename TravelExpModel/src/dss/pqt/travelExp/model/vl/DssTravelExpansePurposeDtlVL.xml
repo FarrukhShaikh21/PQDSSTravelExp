@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DssTravelExpansePurposeDtlVL"
+  Version="12.2.1.0.31"
+  InheritPersonalization="merge"
+  EntityAssociation="dss.pqt.travelExp.model.eo.DssTravelExpansePurposeDtAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="dss.pqt.travelExp.model.vl.DssTravelExpansePurposeDtlVL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="DssTravelExpanseReimbursementView"
+    Cardinality="1"
+    Source="true"
+    Owner="dss.pqt.travelExp.model.vo.DssTravelExpanseReimbursementView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DssTravelExpanseReimbursementView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dss.pqt.travelExp.model.vo.DssTravelExpanseReimbursementView.VoucherIdPk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DssTravelExpansePurposeDtlView"
+    Cardinality="-1"
+    Owner="dss.pqt.travelExp.model.vo.DssTravelExpansePurposeDtlView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DssTravelExpansePurposeDtlView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dss.pqt.travelExp.model.vo.DssTravelExpansePurposeDtlView.VoucherIdFk"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="dss.pqt.travelExp.model.TravelExpModelBundle"/>
+  </ResourceBundle>
+</ViewLink>
