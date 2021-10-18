@@ -16,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
 import oracle.jbo.server.DBTransaction;
@@ -52,6 +53,7 @@ public class DssTravelExpanseReimbursementImpl extends EntityImpl {
         BranchCodeFk,
         WorkflowNotificationId,
         WorkflowStatus,
+        GisLocationIdFk,
         DssTravelexpanseAmountDtl,
         DssTravelexpanseDetail,
         DssTravelExpansePurposeDtl;
@@ -97,6 +99,7 @@ public class DssTravelExpanseReimbursementImpl extends EntityImpl {
     public static final int BRANCHCODEFK = AttributesEnum.BranchCodeFk.index();
     public static final int WORKFLOWNOTIFICATIONID = AttributesEnum.WorkflowNotificationId.index();
     public static final int WORKFLOWSTATUS = AttributesEnum.WorkflowStatus.index();
+    public static final int GISLOCATIONIDFK = AttributesEnum.GisLocationIdFk.index();
     public static final int DSSTRAVELEXPANSEAMOUNTDTL = AttributesEnum.DssTravelexpanseAmountDtl.index();
     public static final int DSSTRAVELEXPANSEDETAIL = AttributesEnum.DssTravelexpanseDetail.index();
     public static final int DSSTRAVELEXPANSEPURPOSEDTL = AttributesEnum.DssTravelExpansePurposeDtl.index();
@@ -408,6 +411,22 @@ public class DssTravelExpanseReimbursementImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for GisLocationIdFk, using the alias name GisLocationIdFk.
+     * @return the value of GisLocationIdFk
+     */
+    public Number getGisLocationIdFk() {
+        return (Number) getAttributeInternal(GISLOCATIONIDFK);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for GisLocationIdFk.
+     * @param value value to set the GisLocationIdFk
+     */
+    public void setGisLocationIdFk(Number value) {
+        setAttributeInternal(GISLOCATIONIDFK, value);
+    }
+
+    /**
      * @return the associated entity oracle.jbo.RowIterator.
      */
     public RowIterator getDssTravelexpanseAmountDtl() {
@@ -452,6 +471,12 @@ public class DssTravelExpanseReimbursementImpl extends EntityImpl {
              
              setBranchStatus("INCOMPLETE");
              setDssStatus("INCOMPLETE");
+
+             ViewObject vo=getDBTransaction().getRootApplicationModule().findViewObject("TravelUserLocVO");
+             if (vo!=null)
+               {
+                       vo.remove();
+               }
              
              FacesContext fctx = FacesContext.getCurrentInstance();
              ExternalContext ectx = fctx.getExternalContext();
@@ -459,6 +484,10 @@ public class DssTravelExpanseReimbursementImpl extends EntityImpl {
              try {
                  setUserIdFk(new Number(userSession.getAttribute("pUserId")));
                  setLastUpdatedBy(new Number(userSession.getAttribute("pUserId")));
+                 vo=getDBTransaction().getRootApplicationModule().createViewObjectFromQueryStmt("TravelUserLocVO", "select  GIS_LOCATION_ID_FK from DSS_SM_USERS WHERE USER_ID_PK="+getUserIdFk());
+                 vo.executeQuery();
+                 setGisLocationIdFk(new Number( vo.first().getAttribute(0).toString() ) );
+                 
              } catch (SQLException ex) {
                  setUserIdFk(new Number(0));
                  setLastUpdatedBy(new Number(0));
