@@ -67,6 +67,10 @@ public class UpdatePage {
     private RichPanelLabelAndMessage plam1;
     private RichOutputText ot1;
     private RichInputListOfValues branchNameId;
+    private RichSelectOneChoice soc7;
+    private UISelectItems si7;
+    private RichOutputText ot2;
+    private RichOutputText ot3;
 
     public void setPh1(RichPanelHeader ph1) {
         this.ph1 = ph1;
@@ -495,5 +499,37 @@ public class UpdatePage {
 
     public RichInputListOfValues getBranchNameId() {
         return branchNameId;
+    }
+
+    public void setSoc7(RichSelectOneChoice soc7) {
+        this.soc7 = soc7;
+    }
+
+    public RichSelectOneChoice getSoc7() {
+        return soc7;
+    }
+
+    public void setSi7(UISelectItems si7) {
+        this.si7 = si7;
+    }
+
+    public UISelectItems getSi7() {
+        return si7;
+    }
+
+    public void setOt2(RichOutputText ot2) {
+        this.ot2 = ot2;
+    }
+
+    public RichOutputText getOt2() {
+        return ot2;
+    }
+
+    public void setOt3(RichOutputText ot3) {
+        this.ot3 = ot3;
+    }
+
+    public RichOutputText getOt3() {
+        return ot3;
     }
 }

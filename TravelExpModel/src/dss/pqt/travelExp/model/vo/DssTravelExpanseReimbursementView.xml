@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="DssTravelExpanseReimbursementView"
-  Version="12.2.1.0.31"
+  Version="12.2.1.11.57"
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
@@ -59,6 +59,10 @@
       </PIMap>
     </ParameterMap>
   </ViewAccessor>
+  <ViewAccessor
+    Name="AccLocationLov"
+    ViewObjectName="dss.pqt.travelExp.model.lov.LocationLov"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_AgentName"
     ListVOName="PentaAgentLOV1"
@@ -111,31 +115,51 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <SQLQuery><![CDATA[SELECT DssTravelExpanseReimbursemen1.AGENT_NO_FK,          
-       DssTravelExpanseReimbursemen1.AMOUNT_ADVANCED,          
-       DssTravelExpanseReimbursemen1.BALANCE,          
-       DssTravelExpanseReimbursemen1.EMP_ID_FK,          
-       DssTravelExpanseReimbursemen1.GRAND_TOTAL,          
-       DssTravelExpanseReimbursemen1.VOUCHER_ID_PK,          
-       (Select aa.V_AGENT_CODE from vu_dss_TraExp_Agent_Dtl aa               
-       where DssTravelExpanseReimbursemen1.Agent_No_Fk = aa.N_AGENT_NO) AGENT_CODE,               
-       (Select aa.AGENT_NAME from vu_dss_TraExp_Agent_Dtl aa               
-       where DssTravelExpanseReimbursemen1.Agent_No_Fk = aa.N_AGENT_NO)AGENT_NAME,    
-       (SELECT BR.V_BRANCH_NAME                         
-          FROM VU_DSS_ST_BRANCH BR                         
-         WHERE BR.V_BRANCH_CODE = DssTravelExpanseReimbursemen1.BRANCH_CODE_FK)BRANCH_NAME,    
-       DssTravelExpanseReimbursemen1.BRANCH_CODE_FK,     
-       DssTravelExpanseReimbursemen1.ENTER_DATE,          
-       DssTravelExpanseReimbursemen1.LAST_UPDATED_BY,          
-       DssTravelExpanseReimbursemen1.LAST_UPDATED_DATE,          
-       DssTravelExpanseReimbursemen1.USER_ID_FK,          
-       DssTravelExpanseReimbursemen1.DSS_NOTIF_ID_FK,          
-       DssTravelExpanseReimbursemen1.DSS_STATUS,          
-       DssTravelExpanseReimbursemen1.BRANCH_STATUS,          
-       DssTravelExpanseReimbursemen1.BRANCH_NOTIF_ID_FK,       
-       DssTravelExpanseReimbursemen1.Travl_Exp_Doc_No, 
-       DssTravelExpanseReimbursemen1.Workflow_Status, 
-       DssTravelExpanseReimbursemen1.Workflow_Notification_Id 
+  <ListBinding
+    Name="LOV_GisLocationIdFk"
+    ListVOName="AccLocationLov"
+    ListRangeSize="-1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GisLocationIdFk"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IlLocIdPk"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Location"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <SQLQuery><![CDATA[SELECT DssTravelExpanseReimbursemen1.AGENT_NO_FK,            
+       DssTravelExpanseReimbursemen1.AMOUNT_ADVANCED,            
+       DssTravelExpanseReimbursemen1.BALANCE,            
+       DssTravelExpanseReimbursemen1.EMP_ID_FK,            
+       DssTravelExpanseReimbursemen1.GRAND_TOTAL,            
+       DssTravelExpanseReimbursemen1.VOUCHER_ID_PK,            
+       (Select aa.V_AGENT_CODE from vu_dss_TraExp_Agent_Dtl aa                 
+       where DssTravelExpanseReimbursemen1.Agent_No_Fk = aa.N_AGENT_NO) AGENT_CODE,                 
+       (Select aa.AGENT_NAME from vu_dss_TraExp_Agent_Dtl aa                 
+       where DssTravelExpanseReimbursemen1.Agent_No_Fk = aa.N_AGENT_NO)AGENT_NAME,      
+       (SELECT BR.V_BRANCH_NAME                           
+          FROM VU_DSS_ST_BRANCH BR                           
+         WHERE BR.V_BRANCH_CODE = DssTravelExpanseReimbursemen1.BRANCH_CODE_FK)BRANCH_NAME,      
+       DssTravelExpanseReimbursemen1.BRANCH_CODE_FK,       
+       DssTravelExpanseReimbursemen1.ENTER_DATE,            
+       DssTravelExpanseReimbursemen1.LAST_UPDATED_BY,            
+       DssTravelExpanseReimbursemen1.LAST_UPDATED_DATE,            
+       DssTravelExpanseReimbursemen1.USER_ID_FK,            
+       DssTravelExpanseReimbursemen1.DSS_NOTIF_ID_FK,            
+       DssTravelExpanseReimbursemen1.DSS_STATUS,            
+       DssTravelExpanseReimbursemen1.BRANCH_STATUS,            
+       DssTravelExpanseReimbursemen1.BRANCH_NOTIF_ID_FK,         
+       DssTravelExpanseReimbursemen1.Travl_Exp_Doc_No,   
+       DssTravelExpanseReimbursemen1.Workflow_Status,   
+       DssTravelExpanseReimbursemen1.Workflow_Notification_Id ,  
+       DssTravelExpanseReimbursemen1.GIS_LOCATION_ID_FK  
 FROM  DSS_TRAVELEXPANSE_REIMBURSE DssTravelExpanseReimbursemen1]]></SQLQuery>
   <EntityUsage
     Name="DssTravelExpanseReimbursemen1"
@@ -379,6 +403,20 @@ FROM  DSS_TRAVELEXPANSE_REIMBURSE DssTravelExpanseReimbursemen1]]></SQLQuery>
     EntityAttrName="WorkflowNotificationId"
     EntityUsage="DssTravelExpanseReimbursemen1"
     AliasName="WORKFLOW_NOTIFICATION_ID"/>
+  <ViewAttribute
+    Name="GisLocationIdFk"
+    PrecisionRule="true"
+    EntityAttrName="GisLocationIdFk"
+    EntityUsage="DssTravelExpanseReimbursemen1"
+    AliasName="GIS_LOCATION_ID_FK"
+    LOVName="LOV_GisLocationIdFk">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="DssTravelExpanseReimbursementViewCriteria"
     ViewObjectName="dss.pqt.travelExp.model.vo.DssTravelExpanseReimbursementView"

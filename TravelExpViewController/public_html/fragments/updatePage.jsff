@@ -6,7 +6,21 @@
                          valign="middle">
         <af:panelHeader text="Craete / Update page" id="ph1"
                         binding="#{backingBeanScope.backing_fragments_updatePage.ph1}">
-            <f:facet name="context"/>
+            <f:facet name="context">
+                <af:outputText value="(" id="ot3" binding="#{backingBeanScope.backing_fragments_updatePage.ot3}"/>
+                <af:selectOneChoice value="#{bindings.GisLocationIdFk.inputValue}"
+                                    label="#{bindings.GisLocationIdFk.label}"
+                                    required="#{bindings.GisLocationIdFk.hints.mandatory}"
+                                    shortDesc="#{bindings.GisLocationIdFk.hints.tooltip}" id="soc7"
+                                    binding="#{backingBeanScope.backing_fragments_updatePage.soc7}" simple="true"
+                                    readOnly="true" contentStyle="font-weight-bold;">
+                    <f:selectItems value="#{bindings.GisLocationIdFk.items}" id="si7"
+                                   binding="#{backingBeanScope.backing_fragments_updatePage.si7}"/>
+                    <f:validator binding="#{bindings.GisLocationIdFk.validator}"/>
+                </af:selectOneChoice>
+                <af:outputText value=")" id="ot2"
+                               binding="#{backingBeanScope.backing_fragments_updatePage.ot2}"/>
+            </f:facet>
             <f:facet name="toolbar">
                 <af:toolbar id="t5" binding="#{backingBeanScope.backing_fragments_updatePage.t5}">
                     <af:button text="Save Record" id="b3"

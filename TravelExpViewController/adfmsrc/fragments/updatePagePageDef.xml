@@ -104,5 +104,7 @@
                   InstanceName="data.TravelExpApplDataControl.dataProvider"/>
     <listOfValues IterBinding="DssTravelExpanseReimbursementView1Iterator" StaticList="false" Uses="LOV_BranchName"
                   id="BranchName"/>
+    <list IterBinding="DssTravelExpanseReimbursementView1Iterator" StaticList="false" Uses="LOV_GisLocationIdFk"
+          id="GisLocationIdFk" DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
