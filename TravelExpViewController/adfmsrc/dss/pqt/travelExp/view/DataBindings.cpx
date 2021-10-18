@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="dss.pqt.travelExp.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/fragments/TravelExp.jsff" usageId="dss_pqt_travelExp_view_TravelExpPageDef"/>
+    <page path="/TravelExpPage.jsf" usageId="dss_pqt_travelExp_view_TravelExpPagePageDef"/>
+    <page path="/WEB-INF/TaskFlow/TravelExpFlow.xml#TravelExpFlow@Rollback"
+          usageId="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_RollbackPageDef"/>
+    <page path="/fragments/updatePage.jsff" usageId="dss_pqt_travelExp_view_updatePagePageDef"/>
+    <page path="/WEB-INF/TaskFlow/TravelExpFlow.xml#TravelExpFlow@CreateInsert"
+          usageId="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_CreateInsertPageDef"/>
+    <page path="/fragments/detailPage.jsff" usageId="dss_pqt_travelExp_view_detailPagePageDef"/>
+    <page path="/fragments/TENotifications.jsff" usageId="dss_pqt_travelExp_view_NotificationsPageDef"/>
+    <page path="/WEB-INF/TaskFlow/TravelExpFlow.xml#TravelExpFlow@Rollback1"
+          usageId="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_Rollback1PageDef"/>
+    <page path="/WEB-INF/TaskFlow/travl_exp-notification-task-flow-definition.xml#travl_exp-notification-task-flow-definition@setNVC_WfDocumentId"
+          usageId="dss_pqt_travelExp_view_travl_exp_notification_task_flow_definition_travl_exp_notification_task_flow_definition_setNVC_WfDocumentIdPageDef"/>
+    <page path="/TravlExpPageNotification.jsf" usageId="dss_pqt_travelExp_view_TravlExpPagePageDef"/>
+    <page path="/WEB-INF/TaskFlow/TravelExpFlow.xml#TravelExpFlow@DeleteCommit"
+          usageId="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_DeleteCommitPageDef"/>
+    <page path="/WEB-INF/TaskFlow/TravelExpFlow.xml#TravelExpFlow@Delete"
+          usageId="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_DeletePageDef"/>
+    <page path="/WEB-INF/TaskFlow/TravelExpFlow.xml#TravelExpFlow@travelExpSearchUser"
+          usageId="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_travelExpSearchUserPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="dss_pqt_travelExp_view_TravelExpPageDef" path="fragments.TravelExpPageDef"/>
+    <page id="dss_pqt_travelExp_view_TravelExpPagePageDef" path="dss.pqt.travelExp.view.pageDefs.TravelExpPagePageDef"/>
+    <page id="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_RollbackPageDef"
+          path="TaskFlow.TravelExpFlow_TravelExpFlow_RollbackPageDef"/>
+    <page id="dss_pqt_travelExp_view_updatePagePageDef" path="fragments.updatePagePageDef"/>
+    <page id="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_CreateInsertPageDef"
+          path="TaskFlow.TravelExpFlow_TravelExpFlow_CreateInsertPageDef"/>
+    <page id="dss_pqt_travelExp_view_detailPagePageDef" path="fragments.detailPagePageDef"/>
+    <page id="dss_pqt_travelExp_view_NotificationsPageDef" path="fragments.NotificationsPageDef"/>
+    <page id="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_Rollback1PageDef"
+          path="TaskFlow.TravelExpFlow_TravelExpFlow_Rollback1PageDef"/>
+    <page id="dss_pqt_travelExp_view_travl_exp_notification_task_flow_definition_travl_exp_notification_task_flow_definition_setNVC_WfDocumentIdPageDef"
+          path="TaskFlow.travl_exp_notification_task_flow_definition_travl_exp_notification_task_flow_definition_setNVC_WfDocumentIdPageDef"/>
+    <page id="dss_pqt_travelExp_view_TravlExpPagePageDef" path="dss.pqt.travelExp.view.pageDefs.TravlExpPagePageDef"/>
+    <page id="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_DeleteCommitPageDef"
+          path="TaskFlow.TravelExpFlow_TravelExpFlow_DeleteCommitPageDef"/>
+    <page id="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_DeletePageDef"
+          path="TaskFlow.TravelExpFlow_TravelExpFlow_DeletePageDef"/>
+    <page id="dss_pqt_travelExp_view_TravelExpFlow_TravelExpFlow_travelExpSearchUserPageDef"
+          path="TaskFlow.TravelExpFlow_TravelExpFlow_travelExpSearchUserPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="TravelExpApplDataControl" Package="dss.pqt.travelExp.model.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="TravelExpApplLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

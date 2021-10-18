@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="TravelExpFlow">
+    <default-activity>travelExpSearchUser</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>backing_fragments_TravelExp</managed-bean-name>
+      <managed-bean-class>dss.pqt.travelExp.view.backing.fragments.TravelExp</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1fragments/TravelExp.jsff-->
+    </managed-bean>
+    <managed-bean id="__14">
+      <managed-bean-name>backing_fragments_updatePage</managed-bean-name>
+      <managed-bean-class>dss.pqt.travelExp.view.backing.fragments.UpdatePage</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1fragments/updatePage.jsff-->
+    </managed-bean>
+    <managed-bean id="__11">
+      <managed-bean-name>backing_fragments_detailPage</managed-bean-name>
+      <managed-bean-class>dss.pqt.travelExp.view.backing.fragments.DetailPage</managed-bean-class>
+      <managed-bean-scope>backingBean</managed-bean-scope>
+      <!--oracle-jdev-comment:managed-bean-jsp-link:1fragments/detailPage.jsff-->
+    </managed-bean>
+    <view id="travelExp">
+      <page>/fragments/TravelExp.jsff</page>
+    </view>
+    <view id="updatePage">
+      <page>/fragments/updatePage.jsff</page>
+    </view>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="CreateInsert">
+      <method>#{bindings.CreateInsert.execute}</method>
+      <outcome>
+        <fixed-outcome>CreateInsert</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="detailPage">
+      <page>/fragments/detailPage.jsff</page>
+    </view>
+    <method-call id="DeleteCommit">
+      <method>#{bindings.DeleteCommit.execute}</method>
+      <outcome>
+        <fixed-outcome>DeleteCommit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Delete">
+      <method>#{bindings.Delete.execute}</method>
+      <outcome>
+        <fixed-outcome>Delete</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="travelExpSearchUser">
+      <method>#{bindings.travelExpSearchUser.execute}</method>
+      <outcome>
+        <fixed-outcome>travelExpSearchUser</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>travelExp</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>goUpdate</from-outcome>
+        <to-activity-id>updatePage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__17">
+        <from-outcome>goCreate</from-outcome>
+        <to-activity-id>CreateInsert</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>goDetail</from-outcome>
+        <to-activity-id>detailPage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__12">
+        <from-outcome>goDelete</from-outcome>
+        <to-activity-id>Delete</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id>updatePage</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome>backQuery</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__9">
+      <from-activity-id>Rollback</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>travelExp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__18">
+      <from-activity-id>CreateInsert</from-activity-id>
+      <control-flow-case id="__19">
+        <from-outcome>CreateInsert</from-outcome>
+        <to-activity-id>updatePage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>detailPage</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>backQuery</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>Delete</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome>Delete</from-outcome>
+        <to-activity-id>DeleteCommit</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id>DeleteCommit</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome>DeleteCommit</from-outcome>
+        <to-activity-id>travelExp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id>travelExpSearchUser</from-activity-id>
+      <control-flow-case id="__22">
+        <from-outcome>travelExpSearchUser</from-outcome>
+        <to-activity-id>travelExp</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

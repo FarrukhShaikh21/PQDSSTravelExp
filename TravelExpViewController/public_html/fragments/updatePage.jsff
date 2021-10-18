@@ -1,0 +1,378 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_updatePage-->
+    <af:panelGroupLayout id="pgl1" binding="#{backingBeanScope.backing_fragments_updatePage.pgl1}" layout="vertical"
+                         valign="middle">
+        <af:panelHeader text="Craete / Update page" id="ph1"
+                        binding="#{backingBeanScope.backing_fragments_updatePage.ph1}">
+            <f:facet name="context"/>
+            <f:facet name="toolbar">
+                <af:toolbar id="t5" binding="#{backingBeanScope.backing_fragments_updatePage.t5}">
+                    <af:button text="Save Record" id="b3"
+                               binding="#{backingBeanScope.backing_fragments_updatePage.b3}"
+                               actionListener="#{bindings.Apply.execute}"/>
+                </af:toolbar>
+            </f:facet>
+            <f:facet name="menuBar">
+                <af:button text="Back to Query" id="b4" binding="#{backingBeanScope.backing_fragments_updatePage.b4}"
+                           action="backQuery" immediate="true"/>
+            </f:facet>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:separator id="s2" binding="#{backingBeanScope.backing_fragments_updatePage.s2}"/>
+            <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_fragments_updatePage.pfl1}">
+                <af:panelLabelAndMessage label="#{bindings.TravlExpDocNo.hints.label}" id="plam1"
+                                         binding="#{backingBeanScope.backing_fragments_updatePage.plam1}"
+                                         labelStyle="font-weight:bolder;" inlineStyle="font-weight:bolder;">
+                    <af:outputText value="#{bindings.TravlExpDocNo.inputValue}"
+                                   shortDesc="#{bindings.TravlExpDocNo.hints.tooltip}" id="ot1"
+                                   binding="#{backingBeanScope.backing_fragments_updatePage.ot1}"/>
+                </af:panelLabelAndMessage>
+                <af:inputListOfValues id="branchNameId"
+                                      popupTitle="Search and Select: #{bindings.BranchName.hints.label}"
+                                      value="#{bindings.BranchName.inputValue}"
+                                      label="#{bindings.BranchName.hints.label}"
+                                      model="#{bindings.BranchName.listOfValuesModel}"
+                                      required="#{bindings.BranchName.hints.mandatory}"
+                                      columns="#{bindings.BranchName.hints.displayWidth}"
+                                      shortDesc="#{bindings.BranchName.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_fragments_updatePage.branchNameId}"
+                                      disabled="#{bindings.AgentName.inputValue != null}" partialTriggers="agentNameId"
+                                      labelStyle="font-weight:bolder;">
+                    <f:validator binding="#{bindings.BranchName.validator}"/>
+                </af:inputListOfValues>
+                <af:inputListOfValues id="agentNameId" popupTitle="Search and Select: #{bindings.AgentName.hints.label}"
+                                      value="#{bindings.AgentName.inputValue}" label="#{bindings.AgentName.hints.label}"
+                                      model="#{bindings.AgentName.listOfValuesModel}"
+                                      required="#{bindings.AgentName.hints.mandatory}"
+                                      columns="#{bindings.AgentName.hints.displayWidth}"
+                                      shortDesc="#{bindings.AgentName.hints.tooltip}"
+                                      binding="#{backingBeanScope.backing_fragments_updatePage.agentNameId}"
+                                      labelStyle="font-weight:bolder;">
+                    <f:validator binding="#{bindings.AgentName.validator}"/>
+                </af:inputListOfValues>
+            </af:panelFormLayout>
+        </af:panelHeader>
+        <af:separator id="s1" binding="#{backingBeanScope.backing_fragments_updatePage.s1}"/>
+        <af:panelBox text="Transportation Charges" id="pb2" binding="#{backingBeanScope.backing_fragments_updatePage.pb2}">
+            <f:facet name="toolbar">
+                <af:toolbar id="t4" binding="#{backingBeanScope.backing_fragments_updatePage.t4}">
+                    <af:button text="New Record"
+                               disabled="#{!bindings.CreateInsert2.enabled}" id="b5"
+                               binding="#{backingBeanScope.backing_fragments_updatePage.b5}"
+                               actionListener="#{bindings.CreateInsert2.execute}"/>
+                </af:toolbar>
+            </f:facet>
+            <af:table value="#{bindings.DssTravelexpanseDetailView1.collectionModel}" var="row"
+                      rows="#{bindings.DssTravelexpanseDetailView1.rangeSize}"
+                      emptyText="#{bindings.DssTravelexpanseDetailView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.DssTravelexpanseDetailView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.DssTravelexpanseDetailView1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.DssTravelexpanseDetailView1.rangeSize}" id="t2"
+                      binding="#{backingBeanScope.backing_fragments_updatePage.t2}" partialTriggers="l2">
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.DetailDate.label}" id="c4" width="100">
+                    <af:inputDate value="#{row.bindings.DetailDate.inputValue}"
+                                  label="#{bindings.DssTravelexpanseDetailView1.hints.DetailDate.label}"
+                                  required="#{bindings.DssTravelexpanseDetailView1.hints.DetailDate.mandatory}"
+                                  columns="#{bindings.DssTravelexpanseDetailView1.hints.DetailDate.displayWidth}"
+                                  shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.DetailDate.tooltip}" id="id1">
+                        <f:validator binding="#{row.bindings.DetailDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.DssTravelexpanseDetailView1.hints.DetailDate.format}"/>
+                    </af:inputDate>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.Transportation.label}" id="c5"
+                           width="173" align="left">
+                    <af:inputText value="#{row.bindings.Transportation.inputValue}"
+                                  label="#{bindings.DssTravelexpanseDetailView1.hints.Transportation.label}"
+                                  required="#{bindings.DssTravelexpanseDetailView1.hints.Transportation.mandatory}"
+                                  columns="#{bindings.DssTravelexpanseDetailView1.hints.Transportation.displayWidth}"
+                                  maximumLength="#{bindings.DssTravelexpanseDetailView1.hints.Transportation.precision}"
+                                  shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.Transportation.tooltip}"
+                                  id="it1">
+                        <f:validator binding="#{row.bindings.Transportation.validator}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.TripType.label}" id="c6" width="120"
+                           align="left">
+                    <af:selectOneChoice value="#{row.bindings.TripType.inputValue}"
+                                        label="#{row.bindings.TripType.label}"
+                                        required="#{bindings.DssTravelexpanseDetailView1.hints.TripType.mandatory}"
+                                        shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.TripType.tooltip}"
+                                        id="soc1">
+                        <f:selectItems value="#{row.bindings.TripType.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.TripType.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.FromLocation.label}" id="c7"
+                           width="139" align="left">
+                    <af:selectOneChoice value="#{row.bindings.FromLocation.inputValue}"
+                                        label="#{row.bindings.FromLocation.label}"
+                                        required="#{bindings.DssTravelexpanseDetailView1.hints.FromLocation.mandatory}"
+                                        shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.FromLocation.tooltip}"
+                                        id="soc2">
+                        <f:selectItems value="#{row.bindings.FromLocation.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.FromLocation.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.ToLocation.label}" id="c8"
+                           width="126" align="left">
+                    <af:selectOneChoice value="#{row.bindings.ToLocation.inputValue}"
+                                        label="#{row.bindings.ToLocation.label}"
+                                        required="#{bindings.DssTravelexpanseDetailView1.hints.ToLocation.mandatory}"
+                                        shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.ToLocation.tooltip}"
+                                        id="soc3">
+                        <f:selectItems value="#{row.bindings.ToLocation.items}" id="si3"/>
+                        <f:validator binding="#{row.bindings.ToLocation.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.TransportMode.label}" id="c9"
+                           width="169" align="left">
+                    <af:selectOneChoice value="#{row.bindings.TransportMode.inputValue}"
+                                        label="#{row.bindings.TransportMode.label}"
+                                        required="#{bindings.DssTravelexpanseDetailView1.hints.TransportMode.mandatory}"
+                                        shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.TransportMode.tooltip}"
+                                        id="soc4">
+                        <f:selectItems value="#{row.bindings.TransportMode.items}" id="si4"/>
+                        <f:validator binding="#{row.bindings.TransportMode.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.FareAmount.label}" id="c10"
+                           width="85">
+                    <af:inputText value="#{row.bindings.FareAmount.inputValue}"
+                                  label="#{bindings.DssTravelexpanseDetailView1.hints.FareAmount.label}"
+                                  required="#{bindings.DssTravelexpanseDetailView1.hints.FareAmount.mandatory}"
+                                  columns="#{bindings.DssTravelexpanseDetailView1.hints.FareAmount.displayWidth}"
+                                  maximumLength="#{bindings.DssTravelexpanseDetailView1.hints.FareAmount.precision}"
+                                  shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.FareAmount.tooltip}" id="it2"
+                                  autoSubmit="true">
+                        <f:validator binding="#{row.bindings.FareAmount.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DssTravelexpanseDetailView1.hints.FareAmount.format}"/>
+                        <af:convertNumber type="number" pattern="#,###.##"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.TaxAmount.label}" id="c11"
+                           width="81">
+                    <af:inputText value="#{row.bindings.TaxAmount.inputValue}"
+                                  label="#{bindings.DssTravelexpanseDetailView1.hints.TaxAmount.label}"
+                                  required="#{bindings.DssTravelexpanseDetailView1.hints.TaxAmount.mandatory}"
+                                  columns="#{bindings.DssTravelexpanseDetailView1.hints.TaxAmount.displayWidth}"
+                                  maximumLength="#{bindings.DssTravelexpanseDetailView1.hints.TaxAmount.precision}"
+                                  shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.TaxAmount.tooltip}" id="it3"
+                                  autoSubmit="true">
+                        <f:validator binding="#{row.bindings.TaxAmount.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DssTravelexpanseDetailView1.hints.TaxAmount.format}"/>
+                        <af:convertNumber type="number" pattern="#,###.##"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.OtherAmount.label}" id="c12"
+                           width="76">
+                    <af:inputText value="#{row.bindings.OtherAmount.inputValue}"
+                                  label="#{bindings.DssTravelexpanseDetailView1.hints.OtherAmount.label}"
+                                  required="#{bindings.DssTravelexpanseDetailView1.hints.OtherAmount.mandatory}"
+                                  columns="#{bindings.DssTravelexpanseDetailView1.hints.OtherAmount.displayWidth}"
+                                  maximumLength="#{bindings.DssTravelexpanseDetailView1.hints.OtherAmount.precision}"
+                                  shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.OtherAmount.tooltip}" id="it4"
+                                  autoSubmit="true">
+                        <f:validator binding="#{row.bindings.OtherAmount.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DssTravelexpanseDetailView1.hints.OtherAmount.format}"/>
+                        <af:convertNumber type="number" pattern="#,###.##"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelexpanseDetailView1.hints.TotAmount.label}" id="c13"
+                           width="73" align="left">
+                    <f:facet name="footer">
+                        <af:inputText value="#{bindings.TotSumAmount.inputValue}"
+                                      label="#{bindings.DssTravelexpanseDetailView1.hints.TotSumAmount.label}"
+                                      required="#{bindings.DssTravelexpanseDetailView1.hints.TotSumAmount.mandatory}"
+                                      maximumLength="#{bindings.DssTravelexpanseDetailView1.hints.TotSumAmount.precision}"
+                                      shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.TotSumAmount.tooltip}"
+                                      id="it11" autoSubmit="true" partialTriggers="it5">
+                            <f:validator binding="#{row.bindings.TotSumAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DssTravelexpanseDetailView1.hints.TotSumAmount.format}"/>
+                            <af:convertNumber type="number" pattern="#,###.##"/>
+                        </af:inputText>
+                    </f:facet>
+                    <af:inputText value="#{row.bindings.TotAmount.inputValue}"
+                                  label="#{bindings.DssTravelexpanseDetailView1.hints.TotAmount.label}"
+                                  required="#{bindings.DssTravelexpanseDetailView1.hints.TotAmount.mandatory}"
+                                  columns="#{bindings.DssTravelexpanseDetailView1.hints.TotAmount.displayWidth}"
+                                  maximumLength="#{bindings.DssTravelexpanseDetailView1.hints.TotAmount.precision}"
+                                  shortDesc="#{bindings.DssTravelexpanseDetailView1.hints.TotAmount.tooltip}" id="it5"
+                                  partialTriggers="it2 it3 it4" autoSubmit="true" disabled="true">
+                        <f:validator binding="#{row.bindings.TotAmount.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DssTravelexpanseDetailView1.hints.TotAmount.format}"/>
+                        <af:convertNumber type="number" pattern="#,###.##"/>
+                    </af:inputText>
+                </af:column>
+                <af:column id="c16" headerText="Delete" align="center">
+                    <af:link id="l2" icon="/images/deleteicon_enabled.gif" actionListener="#{bindings.Delete1.execute}" disabled="#{!bindings.Delete1.enabled}"/>
+                </af:column>
+            </af:table>
+        </af:panelBox>
+        <af:panelDashboard id="pd2" binding="#{backingBeanScope.backing_fragments_updatePage.pd2}"
+                           dimensionsFrom="children" rowHeight="300px" columns="2">
+            <af:panelBox text="Extra Charges" id="pb1" binding="#{backingBeanScope.backing_fragments_updatePage.pb1}"
+                         type="flow" showDisclosure="false">
+                <f:facet name="toolbar">
+                    <af:toolbar id="t6" binding="#{backingBeanScope.backing_fragments_updatePage.t6}">
+                        <af:button actionListener="#{bindings.CreateInsert.execute}" text="New Record"
+                                   disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                                   binding="#{backingBeanScope.backing_fragments_updatePage.b1}"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.DssTravelexpanseAmountDtlView1.collectionModel}" var="row"
+                          rows="#{bindings.DssTravelexpanseAmountDtlView1.rangeSize}"
+                          emptyText="#{bindings.DssTravelexpanseAmountDtlView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.DssTravelexpanseAmountDtlView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.DssTravelexpanseAmountDtlView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.DssTravelexpanseAmountDtlView1.rangeSize}" id="t1"
+                          binding="#{backingBeanScope.backing_fragments_updatePage.t1}" partialTriggers="l1">
+                    <af:column headerText="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountDate.label}" id="c2"
+                               width="94" align="center">
+                        <af:inputDate value="#{row.bindings.AmountDate.inputValue}"
+                                      label="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountDate.label}"
+                                      required="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountDate.mandatory}"
+                                      columns="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountDate.displayWidth}"
+                                      shortDesc="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountDate.tooltip}"
+                                      id="id2">
+                            <f:validator binding="#{row.bindings.AmountDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column headerText="#{bindings.DssTravelexpanseAmountDtlView1.hints.Particular.label}" id="c3"
+                               width="145" align="left">
+                        <af:selectOneChoice value="#{row.bindings.Particular.inputValue}"
+                                            label="#{row.bindings.Particular.label}"
+                                            required="#{bindings.DssTravelexpanseAmountDtlView1.hints.Particular.mandatory}"
+                                            shortDesc="#{bindings.DssTravelexpanseAmountDtlView1.hints.Particular.tooltip}"
+                                            id="soc5">
+                            <f:selectItems value="#{row.bindings.Particular.items}" id="si5"/>
+                            <f:validator binding="#{row.bindings.Particular.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column headerText="#{bindings.DssTravelexpanseAmountDtlView1.hints.Amount.label}" id="c1"
+                               width="200">
+                        <af:inputText value="#{row.bindings.Amount.inputValue}"
+                                      label="#{bindings.DssTravelexpanseAmountDtlView1.hints.Amount.label}"
+                                      required="#{bindings.DssTravelexpanseAmountDtlView1.hints.Amount.mandatory}"
+                                      columns="#{bindings.DssTravelexpanseAmountDtlView1.hints.Amount.displayWidth}"
+                                      maximumLength="#{bindings.DssTravelexpanseAmountDtlView1.hints.Amount.precision}"
+                                      shortDesc="#{bindings.DssTravelexpanseAmountDtlView1.hints.Amount.tooltip}"
+                                      id="it6">
+                            <f:validator binding="#{row.bindings.Amount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.DssTravelexpanseAmountDtlView1.hints.Amount.format}"/>
+                            <af:convertNumber type="number" pattern="#,###.##"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:inputText
+                                          label="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountSumdt.label}"
+                                          required="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountSumdt.mandatory}"
+                                          maximumLength="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountSumdt.precision}"
+                                          shortDesc="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountSumdt.tooltip}"
+                                          id="it12" value="#{bindings.AmountSumdt.inputValue}" autoSubmit="true"
+                                          partialTriggers="it6">
+                                <f:validator binding="#{row.bindings.AmountSumdt.validator}"/>
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.DssTravelexpanseAmountDtlView1.hints.AmountSumdt.format}"/>
+                                <af:convertNumber type="number" pattern="#,###.##"/>
+                            </af:inputText>
+                        </f:facet>
+                    </af:column>
+                    <af:column id="c15" headerText="Delete" align="center">
+                        <af:link id="l1" icon="/images/deleteicon_enabled.gif"
+                                 actionListener="#{bindings.Delete2.execute}"
+                                 disabled="#{!bindings.Delete2.enabled}"/>
+                    </af:column>
+                </af:table>
+            </af:panelBox>
+        </af:panelDashboard>
+        <af:panelDashboard id="pd1" binding="#{backingBeanScope.backing_fragments_updatePage.pd1}"
+                           dimensionsFrom="children" rowHeight="170px">
+            <af:panelBox text="Purpose Of Trip" id="pb3" binding="#{backingBeanScope.backing_fragments_updatePage.pb3}"
+                         showDisclosure="false">
+                <f:facet name="toolbar">
+                    <af:toolbar id="t7" binding="#{backingBeanScope.backing_fragments_updatePage.t7}">
+                        <af:button text="New Record" disabled="#{!bindings.CreateInsert3.enabled}" id="b2"
+                                   binding="#{backingBeanScope.backing_fragments_updatePage.b2}"
+                                   actionListener="#{bindings.CreateInsert3.execute}"/>
+                    </af:toolbar>
+                </f:facet>
+                <af:table value="#{bindings.DssTravelExpansePurposeDtlView1.collectionModel}" var="row"
+                          rows="#{bindings.DssTravelExpansePurposeDtlView1.rangeSize}"
+                          emptyText="#{bindings.DssTravelExpansePurposeDtlView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.DssTravelExpansePurposeDtlView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.DssTravelExpansePurposeDtlView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.DssTravelExpansePurposeDtlView1.rangeSize}"
+                          id="t3" binding="#{backingBeanScope.backing_fragments_updatePage.t3}" partialTriggers="l3">
+                    <af:column headerText="#{bindings.DssTravelExpansePurposeDtlView1.hints.PurposeIdFk.label}" id="c14"
+                               align="left" width="200">
+                        <af:selectOneChoice value="#{row.bindings.PurposeIdFk.inputValue}"
+                                            label="#{row.bindings.PurposeIdFk.label}"
+                                            required="#{bindings.DssTravelExpansePurposeDtlView1.hints.PurposeIdFk.mandatory}"
+                                            shortDesc="#{bindings.DssTravelExpansePurposeDtlView1.hints.PurposeIdFk.tooltip}"
+                                            id="soc6">
+                            <f:selectItems value="#{row.bindings.PurposeIdFk.items}" id="si6"/>
+                            <f:validator binding="#{row.bindings.PurposeIdFk.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column id="c17" headerText="Delete" align="center">
+                        <af:link id="l3" icon="/images/deleteicon_enabled.gif"
+                                 actionListener="#{bindings.Delete3.execute}"
+                                 disabled="#{!bindings.Delete3.enabled}"/>
+                    </af:column>
+                </af:table>
+            </af:panelBox>
+            <af:panelBox text="Amount Detail" id="pb4" binding="#{backingBeanScope.backing_fragments_updatePage.pb4}"
+                         showDisclosure="false">
+                <f:facet name="toolbar">
+                    <af:toolbar id="t8" binding="#{backingBeanScope.backing_fragments_updatePage.t8}"/>
+                </f:facet>
+                <af:panelFormLayout id="pfl2" binding="#{backingBeanScope.backing_fragments_updatePage.pfl2}">
+                    <af:inputText value="#{bindings.AmountAdvanced.inputValue}"
+                                  label="#{bindings.AmountAdvanced.hints.label}"
+                                  required="#{bindings.AmountAdvanced.hints.mandatory}"
+                                  columns="#{bindings.AmountAdvanced.hints.displayWidth}"
+                                  maximumLength="#{bindings.AmountAdvanced.hints.precision}"
+                                  shortDesc="#{bindings.AmountAdvanced.hints.tooltip}" id="it8"
+                                  binding="#{backingBeanScope.backing_fragments_updatePage.it8}">
+                        <f:validator binding="#{bindings.AmountAdvanced.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.AmountAdvanced.format}"/>
+                        <af:convertNumber type="number" pattern="#,###.##"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Balance.inputValue}" label="#{bindings.Balance.hints.label}"
+                                  required="#{bindings.Balance.hints.mandatory}"
+                                  columns="#{bindings.Balance.hints.displayWidth}"
+                                  maximumLength="#{bindings.Balance.hints.precision}"
+                                  shortDesc="#{bindings.Balance.hints.tooltip}" id="it9"
+                                  binding="#{backingBeanScope.backing_fragments_updatePage.it9}">
+                        <f:validator binding="#{bindings.Balance.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Balance.format}"/>
+                        <af:convertNumber type="number" pattern="#,###.##"/>
+                    </af:inputText>
+                    <af:inputText label="#{bindings.GrandTotal.hints.label}"
+                                  required="#{bindings.GrandTotal.hints.mandatory}"
+                                  columns="#{bindings.GrandTotal.hints.displayWidth}"
+                                  maximumLength="#{bindings.GrandTotal.hints.precision}"
+                                  shortDesc="#{bindings.GrandTotal.hints.tooltip}" id="it10"
+                                  binding="#{backingBeanScope.backing_fragments_updatePage.it10}"
+                                  value="#{bindings.TotSumAmount.inputValue.value + bindings.AmountSumdt.inputValue.value + bindings.Balance.inputValue.value - bindings.AmountAdvanced.inputValue.value }"
+                                  partialTriggers="t2:it11 t1:it12 it8 it9 t2:it5">
+                        <f:validator binding="#{bindings.GrandTotal.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.GrandTotal.format}"/>
+                        <af:convertNumber type="number" pattern="#,###.##"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </af:panelBox>
+        </af:panelDashboard>
+    </af:panelGroupLayout>
+</ui:composition>

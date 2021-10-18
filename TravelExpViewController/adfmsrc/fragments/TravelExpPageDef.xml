@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="TravelExpPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssTravelExpanseReimbursementView1" RangeSize="25" DataControl="TravelExpApplDataControl"
+              id="DssTravelExpanseReimbursementView1Iterator"/>
+    <searchRegion Criteria="DssTravelExpanseReimbursementViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DssTravelExpanseReimbursementView1Iterator"
+                  id="DssTravelExpanseReimbursementViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <action IterBinding="DssTravelExpanseReimbursementView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <tree IterBinding="DssTravelExpanseReimbursementView1Iterator" id="DssTravelExpanseReimbursementView1">
+      <nodeDefinition DefName="dss.pqt.travelExp.model.vo.DssTravelExpanseReimbursementView"
+                      Name="DssTravelExpanseReimbursementView10">
+        <AttrNames>
+          <Item Value="VoucherIdPk"/>
+          <Item Value="TravlExpDocNo"/>
+          <Item Value="AgentName"/>
+          <Item Value="AmountAdvanced"/>
+          <Item Value="Balance"/>
+          <Item Value="WorkflowStatus"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

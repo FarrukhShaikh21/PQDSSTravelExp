@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="NotificationsPageDef"
+                Package="fragments">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DssTravelExpanseReimbursementView1" RangeSize="25" DataControl="TravelExpApplDataControl"
+              id="DssTravelExpanseReimbursementView1Iterator"/>
+    <iterator Binds="DssTravelexpanseDetailView1" RangeSize="25" DataControl="TravelExpApplDataControl"
+              id="DssTravelexpanseDetailView1Iterator"/>
+    <iterator Binds="DssTravelexpanseAmountDtlView1" RangeSize="25" DataControl="TravelExpApplDataControl"
+              id="DssTravelexpanseAmountDtlView1Iterator"/>
+    <iterator Binds="DssTravelExpansePurposeDtlView1" RangeSize="25" DataControl="TravelExpApplDataControl"
+              id="DssTravelExpansePurposeDtlView1Iterator"/>
+  </executables>
+  <bindings>
+    <listOfValues IterBinding="DssTravelExpanseReimbursementView1Iterator" StaticList="false" Uses="LOV_AgentName"
+                  id="AgentName"/>
+    <tree IterBinding="DssTravelexpanseDetailView1Iterator" id="DssTravelexpanseDetailView1">
+      <nodeDefinition DefName="dss.pqt.travelExp.model.vo.DssTravelexpanseDetailView"
+                      Name="DssTravelexpanseDetailView10">
+        <AttrNames>
+          <Item Value="DetailDate"/>
+          <Item Value="Transportation"/>
+          <Item Value="TripType"/>
+          <Item Value="FromLocation"/>
+          <Item Value="ToLocation"/>
+          <Item Value="TransportMode"/>
+          <Item Value="FareAmount"/>
+          <Item Value="TaxAmount"/>
+          <Item Value="OtherAmount"/>
+          <Item Value="TotAmount"/>
+          <Item Value="VoucherIdFk"/>
+          <Item Value="TotSumAmount"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DssTravelexpanseAmountDtlView1Iterator" id="DssTravelexpanseAmountDtlView1">
+      <nodeDefinition DefName="dss.pqt.travelExp.model.vo.DssTravelexpanseAmountDtlView"
+                      Name="DssTravelexpanseAmountDtlView10">
+        <AttrNames>
+          <Item Value="AmountDate"/>
+          <Item Value="Particular"/>
+          <Item Value="Amount"/>
+          <Item Value="AmountSumdt"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DssTravelExpansePurposeDtlView1Iterator" id="DssTravelExpansePurposeDtlView1">
+      <nodeDefinition DefName="dss.pqt.travelExp.model.vo.DssTravelExpansePurposeDtlView"
+                      Name="DssTravelExpansePurposeDtlView10">
+        <AttrNames>
+          <Item Value="PurposeIdFk"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DssTravelExpanseReimbursementView1Iterator" id="AmountAdvanced">
+      <AttrNames>
+        <Item Value="AmountAdvanced"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssTravelExpanseReimbursementView1Iterator" id="Balance">
+      <AttrNames>
+        <Item Value="Balance"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssTravelExpanseReimbursementView1Iterator" id="GrandTotal">
+      <AttrNames>
+        <Item Value="GrandTotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DssTravelExpanseReimbursementView1Iterator" id="TravlExpDocNo">
+      <AttrNames>
+        <Item Value="TravlExpDocNo"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues IterBinding="DssTravelExpanseReimbursementView1Iterator" StaticList="false" Uses="LOV_BranchName"
+                  id="BranchName"/>
+  </bindings>
+</pageDefinition>

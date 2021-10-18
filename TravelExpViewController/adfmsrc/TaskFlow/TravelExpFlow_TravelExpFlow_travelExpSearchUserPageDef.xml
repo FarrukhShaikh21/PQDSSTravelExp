@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31"
+                id="TravelExpFlow_TravelExpFlow_travelExpSearchUserPageDef" Package="TaskFlow" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="travelExpSearchUser" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="travelExpSearchUser" IsViewObjectMethod="true" DataControl="TravelExpApplDataControl"
+                  InstanceName="data.TravelExpApplDataControl.DssTravelExpanseReimbursementView1"/>
+  </bindings>
+</pageDefinition>

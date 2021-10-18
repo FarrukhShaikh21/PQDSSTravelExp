@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_fragments_TravelExp-->
+    <af:panelGroupLayout layout="vertical" id="pgl1" binding="#{backingBeanScope.backing_fragments_TravelExp.pgl1}">
+        <af:panelHeader text="Search Page" id="ph1"
+                        binding="#{backingBeanScope.backing_fragments_TravelExp.ph1}">
+            <af:query id="qryId1" headerText="Search" disclosed="true"
+                      value="#{bindings.DssTravelExpanseReimbursementViewCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.DssTravelExpanseReimbursementViewCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.DssTravelExpanseReimbursementViewCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.DssTravelExpanseReimbursementViewCriteriaQuery.processQueryOperation}"
+                      resultComponentId="::pc1:resId1" binding="#{backingBeanScope.backing_fragments_TravelExp.qryId1}"
+                      saveQueryMode="hidden" modeChangeVisible="false"/>
+        </af:panelHeader>
+        <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_fragments_TravelExp.pc1}"
+                            styleClass="AFStretchWidth" featuresOff="detach viewMenu">
+            <f:facet name="menus"/>
+            <f:facet name="toolbar">
+                <af:toolbar id="t1" binding="#{backingBeanScope.backing_fragments_TravelExp.t1}">
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Create New"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                               binding="#{backingBeanScope.backing_fragments_TravelExp.b1}" action="goCreate"/>
+                </af:toolbar>
+            </f:facet>
+            <f:facet name="statusbar"/>
+            <af:table value="#{bindings.DssTravelExpanseReimbursementView1.collectionModel}" var="row"
+                      rows="#{bindings.DssTravelExpanseReimbursementView1.rangeSize}"
+                      emptyText="#{bindings.DssTravelExpanseReimbursementView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.DssTravelExpanseReimbursementView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.DssTravelExpanseReimbursementView1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.DssTravelExpanseReimbursementView1.rangeSize}"
+                      id="resId1" partialTriggers="::pc1:b1 ::b1 l3"
+                      binding="#{backingBeanScope.backing_fragments_TravelExp.resId1}">
+                <af:column headerText="#{bindings.DssTravelExpanseReimbursementView1.hints.VoucherIdPk.label}" id="c9"
+                           rendered="false">
+                    <af:inputText value="#{row.bindings.VoucherIdPk.inputValue}"
+                                  label="#{bindings.DssTravelExpanseReimbursementView1.hints.VoucherIdPk.label}"
+                                  required="#{bindings.DssTravelExpanseReimbursementView1.hints.VoucherIdPk.mandatory}"
+                                  columns="#{bindings.DssTravelExpanseReimbursementView1.hints.VoucherIdPk.displayWidth}"
+                                  maximumLength="#{bindings.DssTravelExpanseReimbursementView1.hints.VoucherIdPk.precision}"
+                                  shortDesc="#{bindings.DssTravelExpanseReimbursementView1.hints.VoucherIdPk.tooltip}"
+                                  id="it1">
+                        <f:validator binding="#{row.bindings.VoucherIdPk.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DssTravelExpanseReimbursementView1.hints.VoucherIdPk.format}"/>
+                    </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelExpanseReimbursementView1.hints.TravlExpDocNo.label}"
+                           id="c7" width="200" align="center">
+                    <af:outputText value="#{row.TravlExpDocNo}"
+                                   shortDesc="#{bindings.DssTravelExpanseReimbursementView1.hints.TravlExpDocNo.tooltip}"
+                                   id="ot5"/>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelExpanseReimbursementView1.hints.AgentName.label}" id="c3"
+                           width="180" align="center">
+                    <af:inputListOfValues id="agentNameId"
+                                          popupTitle="Search and Select: #{bindings.DssTravelExpanseReimbursementView1.hints.AgentName.label}"
+                                          value="#{row.bindings.AgentName.inputValue}"
+                                          model="#{row.bindings.AgentName.listOfValuesModel}"
+                                          required="#{bindings.DssTravelExpanseReimbursementView1.hints.AgentName.mandatory}"
+                                          columns="#{bindings.DssTravelExpanseReimbursementView1.hints.AgentName.displayWidth}"
+                                          shortDesc="#{bindings.DssTravelExpanseReimbursementView1.hints.AgentName.tooltip}"
+                                          readOnly="true">
+                        <f:validator binding="#{row.bindings.AgentName.validator}"/>
+                    </af:inputListOfValues>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelExpanseReimbursementView1.hints.AmountAdvanced.label}"
+                           id="resId1c1" width="94" align="center">
+                    <af:outputText value="#{row.AmountAdvanced}"
+                                   shortDesc="#{bindings.DssTravelExpanseReimbursementView1.hints.AmountAdvanced.tooltip}"
+                                   id="ot1">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DssTravelExpanseReimbursementView1.hints.AmountAdvanced.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelExpanseReimbursementView1.hints.Balance.label}" id="resId1c2"
+                           width="96" align="center">
+                    <af:outputText value="#{row.Balance}"
+                                   shortDesc="#{bindings.DssTravelExpanseReimbursementView1.hints.Balance.tooltip}"
+                                   id="ot2">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.DssTravelExpanseReimbursementView1.hints.Balance.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.DssTravelExpanseReimbursementView1.hints.WorkflowStatus.label}"
+                           id="c5" align="center">
+                    <af:outputText value="#{row.WorkflowStatus}"
+                                   shortDesc="#{bindings.DssTravelExpanseReimbursementView1.hints.WorkflowStatus.tooltip}"
+                                   id="ot3"/>
+                </af:column>
+                <af:column id="c2" headerText="Detail" align="center" width="50">
+                    <af:link id="l2" icon="/images/detailsicon_enabled.gif" action="goDetail"/>
+                </af:column>
+                <af:column id="c1" headerText="Update" align="center" width="50">
+                    <af:link id="l1" icon="/images/updateicon_enabled.gif" action="goUpdate"
+                             disabled="#{row.WorkflowStatus eq 'APPROVED' or row.WorkflowStatus eq 'INPROCESS'}"/>
+                </af:column>
+                <af:column id="c4" align="center" headerText="Delete" width="50">
+                    <af:link id="l3" icon="/images/deleteicon_enabled.gif" action="goDelete"
+                             disabled="#{row.WorkflowStatus eq 'APPROVED' or row.WorkflowStatus eq 'INPROCESS'}"/>
+                </af:column>
+                <af:column id="c8" align="center" headerText="Report" width="50">
+                    <af:link id="l4" icon="/images/printLogo.gif"
+                             actionListener="#{CallReport.callDSSReports('DSS_TRAVEL_EXPANSE_REIMBRS', (row.bindings.VoucherIdPk.inputValue))}"/>
+                </af:column>
+            </af:table>
+        </af:panelCollection>
+    </af:panelGroupLayout>
+</ui:composition>
